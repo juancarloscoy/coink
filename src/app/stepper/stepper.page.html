@@ -1,0 +1,24 @@
+<div class="container">
+
+  <ion-label class="container__title">{{isActive.title}}</ion-label>
+
+  <div class="stepper-container">
+
+    <ion-radio-group name="step1" value="step1" class="step" [ngModel]="step1" >
+      <ion-radio class="step__radio" slot="start" value="step1" checked></ion-radio>
+    </ion-radio-group>
+
+    <div class="line"></div>
+
+    <ion-radio-group name="step2" value="step2" class="step" [(ngModel)]="step2">
+      <ion-radio class="step__radio" slot="start" value="step2" [disabled]="!step2Enabled"></ion-radio>
+    </ion-radio-group>
+
+
+    <div class="line"></div>
+
+    <ion-radio-group name="step3" value="step3" class="step" [(ngModel)]="step3">
+      <ion-radio class="step__radio" slot="start" value="step3" [disabled]="!step3Enabled"></ion-radio>
+    </ion-radio-group>
+  </div>
+</div>

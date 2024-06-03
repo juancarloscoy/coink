@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        margin-top: 24px;
+        color: #004B40;
+        font-weight: 700;
+    }
+
+    &__label {
+        font-size: 16px;
+        --placeholder-color: #AAAAAA;
+        --highlight-color-focused: #AAAAAA;
+        --border-color: #AAAAAA;
+        --border-width: 3px;
+    }
+
+    &__btn-next {
+        --background: #1EEA00;
+        --color: #004B40;
+        font-weight: 700;
+
+    }
+
+}
+
+
+ion-button.button-disabled {
+    --background: #EEEEEE;
+    --color: #757575;
+}

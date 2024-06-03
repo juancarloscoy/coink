@@ -1,0 +1,95 @@
+<div class="container">
+  <form [formGroup]="formAccountData" (ngSubmit)="submitForm()">
+    <ion-label class="container__title">Documento de identidad</ion-label>
+
+    <ion-list>
+      <ion-item>
+        <ion-select formControlName="documentType" class="container__label" label="Tipo de documento"
+          labelPlacement="floating" >
+          <ion-select-option *ngFor="let type of documentTypes" [value]="type.id">
+            {{ type.description }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="isFieldInvalid('documentType')" class="error-message">
+        Tipo de documento es requerido
+      </div>
+      <ion-item>
+        <ion-input formControlName="documentNumber" class="container__label" label="Número de documento"
+          labelPlacement="floating" type="number" [maxlength]="10"></ion-input>
+      </ion-item>
+
+      <div
+        *ngIf="formAccountData.get('documentNumber')!.invalid && (formAccountData.get('documentNumber')?.dirty || formAccountData.get('documentNumber')?.touched)"
+        class="error-message">
+        <div *ngIf="formAccountData.get('documentNumber')?.errors?.['required']">Número de documento requerido</div>
+        <div *ngIf="formAccountData.get('documentNumber')?.errors?.['exactLength']">Número de documento debe tener
+          exactamente 10 dígitos
+        </div>
+      </div>
+      <ion-item>
+        <ion-input formControlName="expeditionDate" class="container__label" label="Fecha de expedición del documento"
+          labelPlacement="floating" type="date"></ion-input>
+      </ion-item>
+      <div *ngIf="isFieldInvalid('expeditionDate')" class="error-message">
+        Fecha de expedición es requerida
+      </div>
+      <ion-item>
+        <ion-input formControlName="birthdate" class="container__label" label="Fecha de nacimiento"
+          labelPlacement="floating" type="date"></ion-input>
+      </ion-item>
+      <div *ngIf="isFieldInvalid('birthdate')" class="error-message">
+        Fecha de nacimiento es requerida
+      </div>
+      <ion-item>
+        <ion-select formControlName="gender" class="container__label" label="Genero" labelPlacement="floating">
+          <ion-select-option value="1">Masculino</ion-select-option>
+          <ion-select-option value="2">Femenino</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="isFieldInvalid('gender')" class="error-message">
+        Genero es requerido
+      </div>
+    </ion-list>
+
+    <ion-label class="container__title">Configura tu cuenta</ion-label>
+
+    <ion-list>
+      <ion-item>
+        <ion-input formControlName="email" class="container__label" label="Correo electrónico" labelPlacement="floating"
+          type="text"></ion-input>
+      </ion-item>
+      <div *ngIf="isFieldInvalid('email')" class="error-message">
+        Correo eléctronico inválido
+      </div>
+
+      <ion-item>
+        <ion-input formControlName="confirmEmail" class="container__label" label="Confirmar correo electrónico"
+          labelPlacement="floating" type="text"></ion-input>
+      </ion-item>
+      <div *ngIf="isFieldInvalid('confirmEmail')" class="error-message">
+        Correo eléctronico no coincide
+      </div>
+      <ion-item>
+        <ion-input formControlName="securityPin" class="container__label" label="PIN de seguridad"
+          labelPlacement="floating" [type]="showPasswords.password ? 'text' : 'password'" clearInput="false"
+          clearOnEdit="false" debounce="750"> </ion-input>
+        <ion-icon slot="end" [name]="eyeIcons.password" (click)="togglePasswordVisibility('password')"></ion-icon>
+      </ion-item>
+      <div *ngIf="isFieldInvalid('securityPin')" class="error-message">
+        PIN inválido
+      </div>
+      <ion-item>
+        <ion-input formControlName="confirmSecurityPin" class="container__label" label="Confirmar PIN de seguridad"
+          labelPlacement="floating" [type]="showPasswords.confirmPassword ? 'text' : 'password'">
+        </ion-input>
+        <ion-icon slot="end" [name]="eyeIcons.confirmPassword"
+          (click)="togglePasswordVisibility('confirmPassword')"></ion-icon>
+      </ion-item>
+      <div *ngIf="isFieldInvalid('confirmSecurityPin')" class="error-message">
+        PIN no coincide
+      </div>
+    </ion-list>
+    <ion-button class="container__btn-next" shape="round" expand="block" type="submit"
+      [disabled]="formAccountData.invalid">SIGUIENTE</ion-button>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<!-- numeric-keyboard.component.html -->
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let number of [1, 2, 3]">
+      <ion-button expand="block" (click)="onNumberClick(number)">{{ number }}</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngFor="let number of [4, 5, 6]">
+      <ion-button expand="block" (click)="onNumberClick(number)">{{ number }}</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngFor="let number of [7, 8, 9]">
+      <ion-button expand="block" (click)="onNumberClick(number)">{{ number }}</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" (click)="onDeleteClick()">
+        <img src="../../assets/Backspace.png" alt="">
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="block" (click)="onNumberClick(0)">0</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="enter" shape="round" [disabled]="!enabledBtn" (click)="onEnterClick()">
+        <ion-icon  name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

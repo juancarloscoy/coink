@@ -1,0 +1,10 @@
+<div class="content ion-margin">
+
+  <img [src]="imageSrc" alt="coink tel">
+
+  <div class="content__texts" *ngFor="let item of texts">
+    <p class="content__texts__title" *ngIf="item.title != ''"> {{item.title}}</p>
+    <p class="content__texts__subtitle">{{ item.subtitle}}</p>
+  </div>
+</div>
+<div class="content__divider"></div>

@@ -1,0 +1,28 @@
+.container {
+    &__title {
+        color: #004B40;
+        font-weight: 700;
+    }
+
+    &__link {
+        display: block;
+        font-weight: 700;
+        color: #004B40;
+        margin: 40px 0px 16px 0px;
+        text-decoration: underline;
+    }
+
+    &__check {
+        color: #004B40;
+        --border-color-checked: #1EEA00;
+        --checkbox-background-checked: #1EEA00;
+        margin-bottom: 40px;
+    }
+
+    &__btn-done {
+        --background: #1EEA00;
+        --color: #004B40;
+        font-weight: 700;
+
+    }
+}

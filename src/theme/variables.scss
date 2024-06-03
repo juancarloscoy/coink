@@ -1,0 +1,26 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+:root {
+    --ion-background-color: #FFFFFF;
+    --ion-color-primary: #1EEA00;
+    --ion-text-color: #323232;
+
+}
+
+ion-button {
+    --background: #1EEA00;
+    --color: #004B40;
+    font-weight: 700;
+}
+
+.error-message {
+    color: red;
+    font-size: 10px;
+    margin-top: 5px;
+
+}
+
+ion-item .error-message {
+    font-size: 0.8rem;
+}

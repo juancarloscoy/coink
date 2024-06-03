@@ -1,0 +1,20 @@
+<div class="container">
+  <form [formGroup]="myForm">
+    <ion-item class="input-tel">
+      <ion-input class="input-tel" formControlName="telefono" readonly type="tel"
+        placeholder="( X X X - X X X X X X X )" [maxlength]="10" [minlength]="10"></ion-input>
+    </ion-item>
+    <div *ngIf="telefono?.invalid && (telefono?.dirty || telefono?.touched)" class="error-message">
+      <div *ngIf="telefono?.errors?.['required']">El número de célular es requerido.</div>
+      <div *ngIf="telefono?.errors?.['minlength'] || telefono?.errors?.['maxlength']">
+        El número de célular debe tener exactamente 10 dígitos.
+      </div>
+    </div>
+
+  </form>
+
+  <div class="container-keyboard">
+    <app-numeric-keyboard (numberClick)="handleNumberClick($event)" (deleteClick)="handleDeleteClick()"
+      (enterClick)="handleEnterClick()" [enabledBtn]="myForm.valid"></app-numeric-keyboard>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button-icon" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <app-stepper [isActive]="activeSteps"></app-stepper>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <app-information [imageSrc]="imageSrc" [texts]="texts"></app-information>
+  <app-form-celular *ngIf="showPage" (numberTel)="getNumber($event)"></app-form-celular>
+  <app-account-data (step3)="getStep($event)" *ngIf="showPage2"></app-account-data>
+  <app-terms-conditions *ngIf="showPage3"></app-terms-conditions>
+</ion-content>

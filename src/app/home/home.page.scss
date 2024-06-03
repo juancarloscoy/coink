@@ -1,0 +1,43 @@
+.main {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    gap: 48px;
+
+    &__image {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    color: #1EEA00;
+    align-items: center;
+    gap: 4px;
+    font-weight: 700;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+
+  &__login {
+    --background: #004B40;
+    --color: #FFFFFF;
+    font-weight: 700;
+  }
+}
